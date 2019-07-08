@@ -1,0 +1,48 @@
+﻿@model Vidly.Models.Movie
+
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1></h1>
+<h2>New Movie</h2>
+<h1></h1>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    @Html.ValidationSummary(true, "Please fix these errors:");
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Genre)
+        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Genre)
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Released)
+        @Html.TextBoxFor(m => m.Released, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Released)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Added)
+        @Html.TextBoxFor(m => m.Added, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Added)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.inStock)
+        @Html.TextBoxFor(m => m.inStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.inStock)
+    </div>
+    @Html.HiddenFor(m => m.Id) <!-- ?? -->
+    @Html.ValidationMessageFor(m => m.Id)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+
+}
+
